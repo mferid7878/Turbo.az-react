@@ -1,0 +1,17 @@
+.home {
+  padding: 16px;
+  text-align: center;
+}
+
+.home h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.home-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}

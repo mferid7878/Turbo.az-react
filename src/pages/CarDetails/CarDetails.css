@@ -1,0 +1,50 @@
+.car-details {
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-details h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.car-details-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.properities {
+  display: flex;
+  justify-content: center;
+  gap: 300px; /* Space between labels and props */
+  margin-top: 16px;
+  text-align: left;
+}
+
+.label,
+.props {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Space between each item */
+}
+
+.label p,
+.props p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.label p {
+  font-weight: bold;
+  color: #555;
+}
