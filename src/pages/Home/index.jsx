@@ -1,7 +1,7 @@
 import React from "react";
 import useFetchData from "../../hooks/useFetchData";
 import Card from "../../components/card";
-import "./home.css";
+import styles from "./Home.module.css";
 import ErrorPage from "../ErrorPage";
 import LoadingScreen from "../Loading";
 
@@ -12,9 +12,9 @@ function Home() {
   if (error) return <ErrorPage message={error} />;
 
   return (
-    <div className="home">
+    <div className={styles.home}>
       <h1>Premium Elanlar</h1>
-      <div className="home-cards">
+      <div className={styles["home-cards"]}>
         {cards.map((car) => (
           <Card key={car.id} car={car} />
         ))}

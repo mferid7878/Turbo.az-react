@@ -9,7 +9,7 @@ function useFetchData() {
     const fetchCards = async () => {
       try {
         const response = await fetch(
-          "https://67fa0b2b094de2fe6ea2fc96.mockapi.io/cards"
+          "https://6800a325b72e9cfaf7281bec.mockapi.io/Turbo_Az/cards"
         );
         const data = await response.json();
         setCards(data);

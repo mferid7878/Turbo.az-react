@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import "./CarDetails.css";
+import styles from "./CarDetails.module.css";
 
 function CarDetails() {
   const { state } = useLocation();
@@ -11,22 +11,32 @@ function CarDetails() {
   }
 
   return (
-    <div className="car-details">
-      <img src={car.avatar} alt={car.name} className="car-details-image" />
-      <div className="properities">
-        <div className="label">
+    <div className={styles["car-details"]}>
+      <img
+        src={car.image}
+        alt={car.name}
+        className={styles["car-details-image"]}
+      />
+      <div className={styles.properities}>
+        <div className={styles.label}>
           <p>Marka</p>
           <p>Model</p>
-          <p>İl</p>
+          <p>Buraılış ili</p>
+          <p>Rəng</p>
           <p>Mühərrik</p>
           <p>Yürüş</p>
         </div>
-        <div className="props">
+        <div className={styles.props}>
           <p>{car.name}</p>
           <p>{car.model}</p>
           <p>{car.year}</p>
-          <p>{car.engine}</p>
-          <p>{car.mileage}</p>
+          <p>{car.color}</p>
+          <div className={styles.engine}>
+            <span>{car.engine.usage}L\</span>
+            <span>{car.engine.power}a.g\</span>
+            <span>{car.engine.fuel}</span>
+          </div>
+          <p>{car.milage} km</p>
         </div>
       </div>
     </div>
