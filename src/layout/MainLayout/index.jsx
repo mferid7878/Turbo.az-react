@@ -6,11 +6,13 @@ import "./layout.css";
 
 function Layout() {
   return (
-    <div className="container">
+    <>
       <Header />
-      <Outlet />
-      <Footer />
-    </div>
+      <div className="container">
+        <Outlet />
+        <Footer />
+      </div>
+    </>
   );
 }
 

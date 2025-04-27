@@ -6,9 +6,9 @@ function CarDetails() {
   const { state } = useLocation();
   const car = state.car;
 
-  if (!car) {
-    return <p>Error: Car data not found. Please go back and try again.</p>;
-  }
+  // if (!car) {
+  //   return <p>Error: Car data not found. Please go back and try again.</p>;
+  // }
 
   return (
     <div className={styles["car-details"]}>

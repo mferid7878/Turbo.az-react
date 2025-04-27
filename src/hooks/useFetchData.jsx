@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 function useFetchData() {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  // const data = useContext(DataContext);
   useEffect(() => {
     const fetchCards = async () => {
       try {
