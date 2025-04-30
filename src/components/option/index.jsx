@@ -1,9 +1,6 @@
-import React from "react";
 import { Controller } from "react-hook-form";
-
-const OptionCar = ({ methods, name, label, options, disabled = false }) => {
+const Option = ({ methods, name, label, options }) => {
   const { control } = methods;
-
   return (
     <div>
       <label htmlFor={name}>{label}</label>
@@ -12,7 +9,7 @@ const OptionCar = ({ methods, name, label, options, disabled = false }) => {
         control={control}
         render={({ field, fieldState }) => (
           <>
-            <select {...field} disabled={disabled}>
+            <select {...field}>
               <option value="">Select {label}</option>
               {options.map((option, index) => (
                 <option key={index} value={option}>
@@ -29,5 +26,4 @@ const OptionCar = ({ methods, name, label, options, disabled = false }) => {
     </div>
   );
 };
-
-export default OptionCar;
+export default Option;

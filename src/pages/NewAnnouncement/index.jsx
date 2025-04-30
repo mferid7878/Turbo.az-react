@@ -1,13 +1,21 @@
 import React, { useCallback } from "react";
 import OptionCar from "../../components/optionCar";
+import Option from "../../components/option";
+import Price from "../../components/price";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { carsData } from "../../hooks/useStaticFormData";
+import { carColors } from "../../hooks/useStaticFormData";
+import { years } from "../../hooks/useStaticFormData";
+import { engineTypes } from "../../hooks/useStaticFormData";
 
 const NewAnnouncement = () => {
-  // Validation schema
   const validationSchema = yup.object().shape({
     name: yup.string().required("Car name is required"),
     model: yup.string().required("Car model is required"),
+    year: yup.string().required("Year is required"),
+    color: yup.string().required("Color is required"),
+    engine: yup.string().required("Engine type is required"),
   });
 
   const useYupValidationResolver = (validationSchema) =>
@@ -54,12 +62,6 @@ const NewAnnouncement = () => {
     resolver: useYupValidationResolver(validationSchema),
   });
 
-  const carsData = [
-    { name: "Toyota", models: ["Corolla", "Camry", "RAV4"] },
-    { name: "BMW", models: ["X5", "X3", "3 Series"] },
-    { name: "Mercedes", models: ["C-Class", "E-Class", "GLA"] },
-  ];
-
   const carNames = carsData.map((car) => car.name);
   const selectedCarName = methods.watch("name");
   const carModels =
@@ -90,16 +92,31 @@ const NewAnnouncement = () => {
         <OptionCar
           methods={methods}
           name="name"
-          label="Car Name"
+          label="Marka"
           options={carNames}
         />
         <OptionCar
           methods={methods}
           name="model"
-          label="Car Model"
+          label="Model"
           options={carModels}
           disabled={!selectedCarName}
         />
+        <Option methods={methods} name="year" label="İl" options={years} />
+        <Option
+          methods={methods}
+          name="color"
+          label="Rəng"
+          options={carColors}
+        />
+        <Option
+          methods={methods}
+          name="engine"
+          label="Mühərrik"
+          options={engineTypes}
+        />
+        <Price methods={methods} name="milage" label="Km" />
+
         <button type="submit">Submit</button>
       </form>
     </div>
