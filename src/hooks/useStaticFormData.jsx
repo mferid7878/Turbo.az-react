@@ -44,4 +44,17 @@ export const years = [
   "2000",
 ];
 
-export const engineTypes = ["Petrol", "Diesel", "Electric", "Hybrid"];
+export const engineTypes = [
+  "Petrol",
+  "Diesel",
+  "Electric",
+  "Hybrid",
+  "LPG",
+  "CNG",
+  "Biofuel",
+  "Hydrogen",
+  "Ethanol",
+  "Biodiesel",
+];
+
+export const transmissionTypes = ["Avtomat", "Mexaniki", "Robot", "Reduktor"];

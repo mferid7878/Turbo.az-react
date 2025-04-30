@@ -1,9 +1,9 @@
-import "./price.css";
+import "./milage.css";
 import { Controller } from "react-hook-form";
-const Price = ({ methods, name, label }) => {
+const Milage = ({ methods, name, label }) => {
   const { control } = methods;
   return (
-    <div className="price">
+    <div className="milage">
       <label htmlFor={name}>{label}</label>
       <Controller
         name={name}
@@ -12,14 +12,11 @@ const Price = ({ methods, name, label }) => {
           <>
             <input type="number" {...field} />
             <div className="radio_buttons">
-              <input type="radio" {...field} name="price" value="AZN" />
-              <label htmlFor="">AZN</label>
-              <input type="radio" {...field} name="price" value="USD" />
-              <label htmlFor="">USD</label>
-              <input type="radio" {...field} name="price" value="EUR" />
-              <label htmlFor="">EUR</label>
+              <input type="radio" {...field} name="milage" value="km" />
+              <label htmlFor="">km</label>
+              <input type="radio" {...field} name="milage" value="miles" />
+              <label htmlFor="">mil</label>
             </div>
-
             {fieldState.error && (
               <p style={{ color: "red" }}>{fieldState.error.message}</p>
             )}
@@ -29,4 +26,4 @@ const Price = ({ methods, name, label }) => {
     </div>
   );
 };
-export default Price;
+export default Milage;

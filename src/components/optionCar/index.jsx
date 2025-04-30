@@ -1,11 +1,12 @@
 import React from "react";
 import { Controller } from "react-hook-form";
+import "./optionCar.css";
 
 const OptionCar = ({ methods, name, label, options, disabled = false }) => {
   const { control } = methods;
 
   return (
-    <div>
+    <div className="row">
       <label htmlFor={name}>{label}</label>
       <Controller
         name={name}
@@ -13,7 +14,7 @@ const OptionCar = ({ methods, name, label, options, disabled = false }) => {
         render={({ field, fieldState }) => (
           <>
             <select {...field} disabled={disabled}>
-              <option value="">Select {label}</option>
+              <option value="">{label}</option>
               {options.map((option, index) => (
                 <option key={index} value={option}>
                   {option}

@@ -1,8 +1,9 @@
 import { Controller } from "react-hook-form";
+import "./option.css";
 const Option = ({ methods, name, label, options }) => {
   const { control } = methods;
   return (
-    <div>
+    <div className="row">
       <label htmlFor={name}>{label}</label>
       <Controller
         name={name}
@@ -10,7 +11,7 @@ const Option = ({ methods, name, label, options }) => {
         render={({ field, fieldState }) => (
           <>
             <select {...field}>
-              <option value="">Select {label}</option>
+              <option value="">{label}</option>
               {options.map((option, index) => (
                 <option key={index} value={option}>
                   {option}

@@ -1,0 +1,32 @@
+.option-car {
+  margin-bottom: 1.5rem;
+}
+
+.option-car label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.option-car select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.option-car select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.option-car .error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
