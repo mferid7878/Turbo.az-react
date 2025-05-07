@@ -1,12 +1,13 @@
 .header-background {
   background-color: #ca1016;
   color: #fff;
+  padding: 10px 0;
 }
 
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,8 +15,19 @@
 }
 
 .header-container h1 {
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: bold;
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.header-container h1:hover {
+  color: #ffcccc; /* Subtle hover effect for the title */
+}
+
+.navigaton {
+  display: flex;
+  gap: 35px; /* Space between buttons */
 }
 
 .new-button {
@@ -28,15 +40,64 @@
   align-items: center;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s ease, transform 0.2s ease;
   outline: none;
 }
 
 .new-button:hover {
   background-color: #16a34a;
+  transform: scale(1.05);
 }
 
 .plus-icon {
-  margin-right: 4px;
+  margin-right: 8px;
   vertical-align: middle;
+}
+
+.liked-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.liked-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Add a subtle hover effect */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.liked-button svg {
+  color: #fff; /* Set the heart icon color to white */
+  font-size: 24px; /* Adjust the size of the heart icon */
+  transition: color 0.2s ease;
+}
+
+.liked-button:hover svg {
+  color: #ff4d4f; /* Change the heart icon color to red on hover */
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .navigaton {
+    gap: 8px;
+  }
+
+  .new-button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .liked-button svg {
+    font-size: 20px;
+  }
 }

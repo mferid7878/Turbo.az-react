@@ -6,11 +6,13 @@ import Price from "../../components/price";
 import Milage from "../../components/milage";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { carsData } from "../../hooks/useStaticFormData";
-import { carColors } from "../../hooks/useStaticFormData";
-import { years } from "../../hooks/useStaticFormData";
-import { engineTypes } from "../../hooks/useStaticFormData";
-import { transmissionTypes } from "../../hooks/useStaticFormData";
+import {
+  carsData,
+  carColors,
+  years,
+  engineTypes,
+  transmissionTypes,
+} from "../../hooks/useStaticFormData";
 
 const NewAnnouncement = () => {
   const validationSchema = yup.object().shape({

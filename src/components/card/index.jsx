@@ -1,6 +1,7 @@
-import React from "react";
+import React, { use } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./card.module.css";
+import LikeButton from "../button/index.jsx";
 
 function Card({ car }) {
   const navigate = useNavigate();
@@ -10,12 +11,11 @@ function Card({ car }) {
   };
 
   return (
-    <div className={styles["car-card"]} onClick={handleCardClick}>
+    <div className={styles["car-card"]}>
       <div className={styles["image-container"]}>
-        <img src={car.image} alt={car.name} />
+        <img onClick={handleCardClick} src={car.image} alt={car.name} />
         <div className={styles.icons}>
-          <span className={`${styles.icon} ${styles.crown}`}>👑</span>
-          <span className={`${styles.icon} ${styles.heart}`}>❤️</span>
+          <LikeButton buttonId={car.id} buttonName={buttonName} />
         </div>
       </div>
       <div className={styles["car-details"]}>
