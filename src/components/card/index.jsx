@@ -15,7 +15,7 @@ function Card({ car }) {
       <div className={styles["image-container"]}>
         <img onClick={handleCardClick} src={car.image} alt={car.name} />
         <div className={styles.icons}>
-          <LikeButton buttonId={car.id} buttonName={buttonName} />
+          <LikeButton buttonId={car.id} />
         </div>
       </div>
       <div className={styles["car-details"]}>

@@ -3,30 +3,27 @@ import { CiHeart } from "react-icons/ci";
 import { addToBasket, removeFromBasket } from "../../features/basketSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-const dispatch = useDispatch();
-const [favorite, setFavorite] = useState(false);
 
-const LikeButton = () => {
+const LikeButton = ({ buttonId }) => {
+  const dispatch = useDispatch();
+  const [favorite, setFavorite] = useState(false);
+
   const handleAddToBasket = () => {
-    if (buttonName === "pushArray") {
-      if (favorite) {
-        dispatch(removeFromBasket(buttonId));
-        buttonRef.current.style.color = "black";
-      } else {
-        dispatch(addToBasket(buttonId));
-      }
-      setFavorite(!favorite);
+    if (favorite) {
+      dispatch(removeFromBasket(buttonId));
+    } else {
+      dispatch(addToBasket(buttonId));
     }
+    setFavorite(!favorite);
   };
+
   return (
-    <>
-      <div
-        onClick={handleAddToBasket}
-        className={`${styles.icon} ${styles.heart}`}
-      >
-        <CiHeart />
-      </div>
-    </>
+    <div
+      onClick={handleAddToBasket}
+      className={`${styles.icon} ${styles.heart}`}
+    >
+      <CiHeart />
+    </div>
   );
 };
 

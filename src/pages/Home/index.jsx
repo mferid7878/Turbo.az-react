@@ -16,7 +16,7 @@ function Home() {
       <h1>Premium Elanlar</h1>
       <div className={styles["home-cards"]}>
         {cards.map((car) => (
-          <Card key={car.id} car={car} buttonName="pushArray" />
+          <Card key={car.id} car={car} />
         ))}
       </div>
     </div>

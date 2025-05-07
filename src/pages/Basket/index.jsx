@@ -1,37 +1,47 @@
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromBasket } from "../../features/basketSlice";
+import useFetchData from "../../hooks/useFetchData";
+import Card from "../../components/card";
 import "./Basket.css";
 
 const Basket = () => {
+  const { cards, loading, error } = useFetchData();
   const basketItems = useSelector((state) => state.basket?.items || []);
   const dispatch = useDispatch();
 
-  const handleRemoveFromBasket = () => {};
+  if (loading) {
+    return <p className="loading-message">Loading your liked cars...</p>;
+  }
+
+  if (error) {
+    return <p className="error-message">Error: {error}</p>;
+  }
 
   return (
     <div className="basket-container">
-      <h1>Your Liked Cars</h1>
+      <h1>Seçilmiş elanlar</h1>
 
       {basketItems.length === 0 ? (
-        <p className="empty-message">
-          Your basket is empty. Start liking some cars!
-        </p>
+        <p className="empty-message">Secilmis Avtomobil yoxdur</p>
       ) : (
         <div className="basket-cards">
-          {basketItems.map((car) => (
-            <div key={car.id} className="basket-card">
-              <img
-                src={car.imageUrl}
-                alt={`${car.make} ${car.model}`}
-                className="basket-card-image"
-              />
-              <div className="basket-card-details"></div>
-              <button
-                className="remove-button"
-                onClick={() => handleRemoveFromBasket(car.id)}
-              ></button>
-            </div>
-          ))}
+          {basketItems.map((itemId) => {
+            const car = cards.find((car) => car.id === itemId);
+            if (!car) return null;
+
+            return (
+              <div key={car.id} className="basket-card">
+                <Card car={car} />
+                <button
+                  className="remove-button"
+                  onClick={() => dispatch(removeFromBasket(car.id))}
+                >
+                  Remove from Basket
+                </button>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

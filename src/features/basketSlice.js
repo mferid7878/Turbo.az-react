@@ -7,10 +7,10 @@ const basketSlice = createSlice({
   },
   reducers: {
     addToBasket: (state, action) => {
-      state.idArray.push(action.payload);
+      state.items.push(action.payload);
     },
     removeFromBasket: (state, action) => {
-      state.idArray = state.idArray.filter((id) => id !== action.payload);
+      state.items = state.items.filter((id) => id !== action.payload);
     },
   },
 });
